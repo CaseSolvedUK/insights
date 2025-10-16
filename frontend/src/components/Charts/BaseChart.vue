@@ -1,6 +1,5 @@
 <script setup>
 import { areDeeplyEqual } from '@/utils'
-import * as echarts from 'echarts'
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import ChartTitle from './ChartTitle.vue'
 
@@ -13,6 +12,9 @@ const props = defineProps({
 let eChart = null
 const chartRef = ref(null)
 onMounted(() => {
+	// global echarts
+	const echarts = window.echarts
+
 	eChart = echarts.init(chartRef.value, 'light', { renderer: 'svg' })
 	Object.keys(props.options).length && eChart.setOption(props.options)
 

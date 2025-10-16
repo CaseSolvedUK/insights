@@ -1,6 +1,7 @@
 import { formatNumber, getShortNumber, ellipsis } from '@/utils'
 import { getColors as getDefaultColors } from '@/utils/colors'
-import { graphic } from 'echarts/core'
+
+const graphic = window.echarts.graphic
 
 export default function getAxisChartOptions({ chartType, options, data }) {
 	const xAxisColumns = getXAxisColumns(options, data)

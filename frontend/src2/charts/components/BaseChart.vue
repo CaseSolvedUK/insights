@@ -1,5 +1,4 @@
 <script setup>
-import * as echarts from 'echarts'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { wheneverChanges } from '../../helpers'
 import ChartTitle from './ChartTitle.vue'
@@ -16,6 +15,9 @@ const chartRef = ref(null)
 let resizeObserver = null
 
 onMounted(async () => {
+	// global echarts
+	const echarts = window.echarts
+
 	const series = props.options?.series?.find((s) => s.type === 'map')
 	const isMap = series && series.type === 'map'
 	const renderer = isMap ? 'canvas' : 'svg'

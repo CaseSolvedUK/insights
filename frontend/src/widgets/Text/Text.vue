@@ -1,5 +1,5 @@
 <script setup>
-import { TextEditor } from 'frappe-ui'
+import { TextEditor } from 'frappe-ui/text-editor'
 import { inject } from 'vue'
 const props = defineProps({
 	item_id: { required: true },

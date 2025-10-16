@@ -1,7 +1,7 @@
 import { useStorage, watchDebounced } from '@vueuse/core'
 import { isEqual } from 'es-toolkit'
 import { call } from 'frappe-ui'
-import { onDocUpdate } from 'frappe-ui/src/resources/realtime'
+import { onDocUpdate } from 'frappe-ui/resources'
 import { computed, reactive, ref, UnwrapRef } from 'vue'
 import { confirmDialog } from '../helpers/confirm_dialog'
 import { getSocket } from '../socket'

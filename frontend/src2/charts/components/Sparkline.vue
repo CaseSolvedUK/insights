@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { graphic } from 'echarts/core'
 import { getColors } from '../colors'
 import BaseChart from './BaseChart.vue'
 import { computed } from 'vue'
+
+const graphic = window.echarts.graphic
 
 const props = defineProps<{ dates: string[]; values: number[]; color?: string }>()
 

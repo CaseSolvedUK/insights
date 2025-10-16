@@ -1,6 +1,6 @@
 @import './assets/Inter/inter.css';
 @import './assets/FiraCode/fira_code.css';
-@import 'frappe-ui/src/style.css';
+@import 'frappe-ui/style.css';
 @import '@vue-flow/core/dist/style.css';
 @import '@vue-flow/core/dist/theme-default.css';
 

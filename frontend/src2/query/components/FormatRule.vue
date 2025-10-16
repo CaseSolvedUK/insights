@@ -17,7 +17,7 @@ import {
 } from './formatting_utils'
 import Autocomplete from '../../components/Autocomplete.vue'
 import FormControl from '../../components/FormControl.vue'
-import DatePicker from 'frappe-ui/src/components/DatePicker/DatePicker.vue'
+import { DatePicker } from 'frappe-ui'
 import RadioGroup from '../../components/ui/Radio.vue'
 import RadioGroupItem from '../../components/ui/RadioGroupItem.vue'
 const format = defineModel<FormattingMode>({ required: true })

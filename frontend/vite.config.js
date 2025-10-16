@@ -3,8 +3,9 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import frappeui from 'frappe-ui/vite'
 import path from 'path'
 import { defineConfig } from 'vite'
+import { visualizer } from "rollup-plugin-visualizer"
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
 	plugins: [
 		frappeui({
 			frappeProxy: true,
@@ -14,40 +15,67 @@ export default defineConfig({
 		}),
 		vue(),
 		vueJsx(),
+//		visualizer({
+//			filename: 'stats.html',
+//			open: false,
+//			template: 'flamegraph', // treemap, sunburst, flamegraph, network
+//			gzipSize: true,
+//			brotliSize: true,
+//		}),
 	],
 	server: {
 		allowedHosts: true,
 	},
 	esbuild: { loader: 'tsx' },
 	resolve: {
-		alias: {
+		alias: [
 			// https://github.com/vitejs/vite/discussions/16730#discussioncomment-13048825
-			vue: 'vue/dist/vue.esm-bundler.js',
-			'@': path.resolve(__dirname, 'src'),
-			'tailwind.config.js': path.resolve(__dirname, 'tailwind.config.js'),
-		},
+			{ find: 'vue', replacement: 'vue/dist/vue.esm-bundler.js' },
+			{ find: '@', replacement: path.resolve(__dirname, 'src') },
+			{ find: /^frappe-ui$/, replacement: 'public/frappe-ui/index.js' },
+			{
+				find: /^frappe-ui\/(?!.*\.css$)(.*)$/,
+				replacement: path.resolve(__dirname, 'public/frappe-ui/$1.js')
+			},
+		],
 	},
 	build: {
 		outDir: `../insights/public/frontend`,
 		emptyOutDir: true,
-		sourcemap: true,
+		target: 'es2020',
+		sourcemap: false,
+		minify: 'esbuild',
+		cssMinify: 'esbuild',
 		rollupOptions: {
-			input: {
-				main: path.resolve(__dirname, 'index.html'),
-				insights_v2: path.resolve(__dirname, 'index_v2.html'),
+			treeshake: {
+				moduleSideEffects: 'no-external',
+				propertyReadSideEffects: false,
+				tryCatchDeoptimization: false,
 			},
+			external: ['echarts'],
 			output: {
-				manualChunks: {
-					'frappe-ui': ['frappe-ui'],
+				globals: {
+					echarts: 'echarts',
+				},
+				manualChunks(id) {
+					if (id.includes('node_modules')) {
+						return 'vendor'
+					}
 				},
 			},
 		},
 	},
 	optimizeDeps: {
-		include: ['feather-icons', 'showdown', 'tailwind.config.js', 'highlight.js/lib/core'],
+		include: ['showdown', 'highlight.js/lib/core'],
+		exclude: [
+			'feather-icons', 'lucide-vue-next', 'echarts',
+			'frappe-ui', 'reka-ui',
+			'codemirror', '@codemirror/lang-javascript',
+			'@codemirror/lang-python', '@codemirror/lang-sql', 'vue-codemirror', 'thememirror',
+		],
 	},
 	define: {
 		// enable hydration mismatch details in production build
 		__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true',
 	},
-})
+}))
