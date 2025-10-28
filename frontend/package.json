@@ -9,7 +9,7 @@
 	"scripts": {
 		"dev": "yarn copy-echarts && vite",
 		"serve": "yarn copy-echarts && vite preview",
-		"build": "yarn copy-echarts && vite build -l warn --base=/assets/insights/frontend/ && yarn copy-html-entry && yarn copy-html-entry2",
+		"build": "yarn copy-echarts && NODE_OPTIONS='--max-old-space-size=2048' vite build -l warn --base=/assets/insights/frontend/ && yarn copy-html-entry && yarn copy-html-entry2",
 		"copy-echarts": "cp ../node_modules/echarts/dist/echarts.min.js ./public/",
 		"copy-html-entry": "cp ../insights/public/frontend/index.html ../insights/www/insights.html",
 		"copy-html-entry2": "cp ../insights/public/frontend/index_v2.html ../insights/www/insights_v2.html"
