@@ -1,4 +1,3 @@
-import { graphic } from 'echarts/core'
 import { ellipsis, formatNumber, getShortNumber, toTitleCase } from '../helpers'
 import { FIELDTYPES } from '../helpers/constants'
 import { getFormattedDate } from '../query/helpers'
@@ -17,6 +16,8 @@ import {
 import { QueryResult, QueryResultColumn, QueryResultRow } from '../types/query.types'
 import { getColors, getGradientColors } from './colors'
 import { EMPTY_RESULT } from '../query/query'
+
+const graphic = window.echarts.graphic
 
 interface GeoJSONFeature {
 	type: string

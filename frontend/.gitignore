@@ -6,3 +6,6 @@ dist-ssr
 /test-results/
 /playwright-report/
 /playwright/.cache/
+stats.html
+auto-imports.d.ts
+public/echarts.min.js

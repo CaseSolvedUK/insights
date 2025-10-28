@@ -1,8 +1,9 @@
 import { formatNumber } from '@/utils'
 import { getColors } from '@/utils/colors'
-import { graphic } from 'echarts/core'
 import { inject } from 'vue'
 import { getShortNumber } from '@/utils'
+
+const graphic = window.echarts.graphic
 
 export default function getLineChartOptions(labels, datasets, options) {
 	if (!datasets || !datasets.length) {

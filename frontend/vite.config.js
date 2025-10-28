@@ -3,6 +3,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import frappeui from 'frappe-ui/vite'
 import path from 'path'
 import { defineConfig } from 'vite'
+import { visualizer } from "rollup-plugin-visualizer"
 
 export default defineConfig({
 	plugins: [
@@ -14,6 +15,13 @@ export default defineConfig({
 		}),
 		vue(),
 		vueJsx(),
+		visualizer({
+			filename: 'stats.html',
+			open: false,
+			template: 'flamegraph', // treemap, sunburst, flamegraph, network
+			gzipSize: true,
+			brotliSize: true,
+		}),
 	],
 	server: {
 		allowedHosts: true,
@@ -32,6 +40,7 @@ export default defineConfig({
 		emptyOutDir: true,
 		sourcemap: false,
 		rollupOptions: {
+			external: ['echarts'],
 			input: {
 				main: path.resolve(__dirname, 'index.html'),
 				insights_v2: path.resolve(__dirname, 'index_v2.html'),
@@ -39,6 +48,9 @@ export default defineConfig({
 			output: {
 				manualChunks: {
 					'frappe-ui': ['frappe-ui'],
+				},
+				globals: {
+					echarts: 'echarts',
 				},
 			},
 		},

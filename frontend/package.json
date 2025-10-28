@@ -7,9 +7,10 @@
 		"node": ">=18.17.0"
 	},
 	"scripts": {
-		"dev": "vite",
-		"serve": "vite preview",
-		"build": "vite build -l warn --base=/assets/insights/frontend/ && yarn copy-html-entry && yarn copy-html-entry2",
+		"dev":   "yarn copy-echarts && vite",
+		"serve": "yarn copy-echarts && vite preview",
+		"build": "yarn copy-echarts && vite build -l warn --base=/assets/insights/frontend/ && yarn copy-html-entry && yarn copy-html-entry2",
+		"copy-echarts": "cp ../node_modules/echarts/dist/echarts.min.js ./public/",
 		"copy-html-entry": "cp ../insights/public/frontend/index.html ../insights/www/insights.html",
 		"copy-html-entry2": "cp ../insights/public/frontend/index_v2.html ../insights/www/insights_v2.html"
 	},
@@ -53,6 +54,7 @@
 		"postcss": "^8.4.14",
 		"prettier": "^2.6.2",
 		"prettier-plugin-tailwindcss": "^0.1.11",
+		"rollup-plugin-visualizer": "^6.0.5",
 		"sass": "^1.54.9",
 		"tailwindcss": "3.4.17",
 		"typescript": "^5.5.2",
