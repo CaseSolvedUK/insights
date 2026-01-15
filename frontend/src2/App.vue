@@ -10,9 +10,7 @@
 			</Suspense>
 		</div>
 
-		<template>
-			<component v-for="dialog in dialogs" :is="dialog" :key="dialog.id" />
-		</template>
+		<component v-for="dialog in dialogs" :is="dialog" :key="dialog.id" />
 
 		<Toaster
 			position="bottom-right"
@@ -33,7 +31,6 @@ import { attachRealtimeListener, waitUntil } from './helpers/index.ts'
 import { createToast } from './helpers/toasts.ts'
 import session from './session'
 import telemetry from './telemetry.ts'
-import router from '@/router.ts'
 
 const route = useRoute()
 const hideSidebar = ref(true)

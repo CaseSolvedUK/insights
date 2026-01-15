@@ -44,14 +44,11 @@ export default defineConfig(({ mode }) => ({
 		cssMinify: 'esbuild',
 		rollupOptions: {
 			treeshake: {
-				moduleSideEffects: false,
+				moduleSideEffects: 'no-external',
 				propertyReadSideEffects: false,
 				tryCatchDeoptimization: false,
 			},
 			external: ['echarts'],
-			input: {
-				main: path.resolve(__dirname, 'index.html'),
-			},
 			output: {
 				globals: {
 					echarts: 'echarts',
