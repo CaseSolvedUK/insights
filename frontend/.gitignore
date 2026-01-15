@@ -9,3 +9,4 @@ dist-ssr
 stats.html
 auto-imports.d.ts
 public/echarts.min.js
+*.cpuprofile

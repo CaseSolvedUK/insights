@@ -1,5 +1,5 @@
 <script setup>
-import { TextEditor } from 'frappe-ui'
+import { TextEditor } from 'frappe-ui/text-editor'
 import { computed } from 'vue'
 
 const emit = defineEmits(['update:modelValue'])

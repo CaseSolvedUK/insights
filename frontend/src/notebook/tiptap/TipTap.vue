@@ -18,7 +18,7 @@
 
 <script setup>
 import { safeJSONParse } from '@/utils'
-import { TextEditor } from 'frappe-ui'
+import { TextEditor } from 'frappe-ui/text-editor'
 import { Code, RemoveFormatting, Strikethrough } from 'lucide-vue-next'
 import { onMounted, ref, watch } from 'vue'
 import Chart from './extensions/Chart'

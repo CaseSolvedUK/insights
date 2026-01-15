@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref, inject } from 'vue'
-import { TextEditor, call } from 'frappe-ui'
+import { call } from 'frappe-ui'
+import { TextEditor } from 'frappe-ui/text-editor'
 
 const props = defineProps({ modelValue: Boolean })
 const emit = defineEmits(['update:modelValue'])

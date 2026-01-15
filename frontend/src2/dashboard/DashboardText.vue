@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TextEditor } from 'frappe-ui'
+import { TextEditor } from 'frappe-ui/text-editor'
 import { inject, ref, unref } from 'vue'
 import { WorkbookDashboardText } from '../types/workbook.types'
 import { Dashboard } from './dashboard'
