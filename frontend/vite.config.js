@@ -28,12 +28,13 @@ export default defineConfig(({ mode }) => ({
 	},
 	esbuild: { loader: 'tsx' },
 	resolve: {
-		alias: {
+		alias: [
 			// https://github.com/vitejs/vite/discussions/16730#discussioncomment-13048825
-			vue: 'vue/dist/vue.esm-bundler.js',
-			'@': path.resolve(__dirname, 'src'),
-			'tailwind.config.js': path.resolve(__dirname, 'tailwind.config.js'),
-		},
+			{ find: 'vue', replacement: 'vue/dist/vue.esm-bundler.js' },
+			{ find: '@', replacement: path.resolve(__dirname, 'src') },
+			{ find: /^frappe-ui$/, replacement: 'public/frappe-ui/index.js' },
+			{ find: 'frappe-ui/text-editor', replacement: 'public/frappe-ui/text-editor.js' },
+		],
 	},
 	build: {
 		outDir: `../insights/public/frontend`,
