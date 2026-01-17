@@ -33,7 +33,10 @@ export default defineConfig(({ mode }) => ({
 			{ find: 'vue', replacement: 'vue/dist/vue.esm-bundler.js' },
 			{ find: '@', replacement: path.resolve(__dirname, 'src') },
 			{ find: /^frappe-ui$/, replacement: 'public/frappe-ui/index.js' },
-			{ find: 'frappe-ui/text-editor', replacement: 'public/frappe-ui/text-editor.js' },
+			{
+				find: /^frappe-ui\/(?!.*\.css$)(.*)$/,
+				replacement: path.resolve(__dirname, 'public/frappe-ui/$1.js')
+			},
 		],
 	},
 	build: {
@@ -65,10 +68,10 @@ export default defineConfig(({ mode }) => ({
 	optimizeDeps: {
 		include: ['showdown', 'highlight.js/lib/core'],
 		exclude: [
-			'feather-icons', 'lucide-vue-next', 'echarts', 'frappe-ui', 'reka-ui',
+			'feather-icons', 'lucide-vue-next', 'echarts',
+			'frappe-ui', 'reka-ui',
 			'codemirror', '@codemirror/lang-javascript',
 			'@codemirror/lang-python', '@codemirror/lang-sql', 'vue-codemirror', 'thememirror',
-			"@tiptap/vue-3", "@tiptap/suggestion",
 		],
 	},
 	define: {
