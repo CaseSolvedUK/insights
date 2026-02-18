@@ -828,9 +828,9 @@
   integrity sha512-42aWfPrimMfDKDi4YegyS7x+/0tlzaqwPQCULLanv3DMIlu96KTJR0fM5isWX2UViOqlGnX6YFgqWepcX+XMNg==
 
 "@rolldown/pluginutils@^1.0.0-beta.9":
-  version "1.0.0-rc.4"
-  resolved "https://registry.npmjs.org/@rolldown/pluginutils/-/pluginutils-1.0.0-rc.4.tgz#267b477af268a082861c861e47f6a787dff59cc4"
-  integrity sha512-1BrrmTu0TWfOP1riA8uakjFc9bpIUGzVKETsOtzY39pPga8zELGDl8eu1Dx7/gjM5CAz14UknsUMpBO8L+YntQ==
+  version "1.0.0-rc.5"
+  resolved "https://registry.npmjs.org/@rolldown/pluginutils/-/pluginutils-1.0.0-rc.5.tgz#d423c299bc22ad18f1d0efc0b96a41bd92cd32e4"
+  integrity sha512-RxlLX/DPoarZ9PtxVrQgZhPoor987YtKQqCo5zkjX+0S0yLJ7Vv515Wk6+xtTL67VONKJKxETWZwuZjss2idYw==
 
 "@rollup/rollup-android-arm-eabi@4.57.1":
   version "4.57.1"
@@ -2413,7 +2413,7 @@ fraction.js@^5.3.4:
 
 "frappe-ui@https://github.com/CaseSolvedUK/frappe-ui.git#buildtolib":
   version "0.1.201"
-  resolved "https://github.com/CaseSolvedUK/frappe-ui.git#ad2d8de89d82d927f3d2f5212b4190e5743e6b8b"
+  resolved "https://github.com/CaseSolvedUK/frappe-ui.git#c36188313266c322fed107475b7ae4c6d81fd8e6"
   dependencies:
     "@floating-ui/vue" "^1.1.6"
     "@headlessui/vue" "^1.7.14"
